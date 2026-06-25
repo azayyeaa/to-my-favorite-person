@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Night, Nayla ♡</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(180deg,#07152f,#132850,#020611);
+color:#fff;
+}
+.stars,.stars:after{
+position:absolute;inset:0;
+background-image:radial-gradient(#fff 1px,transparent 1px);
+background-size:40px 40px;
+opacity:.35;
+animation:move 60s linear infinite;
+content:"";
+}
+.stars:after{transform:translateY(-100%)}
+@keyframes move{to{transform:translateY(100%)}}
+.card{
+position:relative;
+z-index:2;
+max-width:700px;
+margin:20px;
+padding:40px;
+border-radius:24px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+h2{font-size:18px;color:#ffd7e9;letter-spacing:2px}
+h1{margin:15px 0;font-size:40px}
+p{line-height:1.8;color:#e7e7e7}
+button{
+margin-top:30px;
+padding:14px 32px;
+border:none;
+border-radius:999px;
+cursor:pointer;
+font-size:16px;
+background:#ff7aa8;
+color:white;
+transition:.3s;
+}
+button:hover{transform:scale(1.05)}
+.overlay{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,.92);
+opacity:0;
+visibility:hidden;
+transition:.8s;
+padding:20px;
+}
+.overlay.show{opacity:1;visibility:visible}
+.message{max-width:650px;text-align:center}
+.message h3{font-size:34px;margin-bottom:20px}
+.hearts{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+}
+.heart{
+position:absolute;
+bottom:-30px;
+font-size:20px;
+animation:float 5s linear forwards;
+}
+@keyframes float{
+0%{transform:translateY(0);opacity:0}
+20%{opacity:1}
+100%{transform:translateY(-120vh);opacity:0}
+}
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="hearts" id="hearts"></div>
+
+<div class="card">
+<h2>To My Favorite Person ♡</h2>
+<h1>Nayla Cahaya Putri Handayani</h1>
+
+<p>
+Hey, Nayla.<br><br>
+
+I don't know how your day went,
+but I hope you're proud of yourself for making it through another one.<br><br>
+
+If today was beautiful, I'm happy for you.
+If today was difficult, I hope tomorrow will be a little kinder.<br><br>
+
+For now, just close your eyes,
+take a deep breath,
+and let the night take care of the rest.<br><br>
+
+Sleep well, beautiful.
+You deserve the sweetest dreams.
+</p>
+
+<button onclick="openLetter()">Open My Heart ♡</button>
+</div>
+
+<div class="overlay" id="overlay">
+<div class="message">
+<h3>Just One More Thing...</h3>
+
+<p>
+If I could choose one place to be tonight,<br>
+I'd choose to be right beside you.<br><br>
+
+Not to say anything special...<br>
+Just to make sure you fall asleep with a smile.<br><br>
+
+Thank you for existing.<br>
+Thank you for being you.<br><br>
+
+Good night,<br>
+<b>Nayla Cahaya Putri Handayani.</b><br><br>
+
+Dream of beautiful things...<br>
+and maybe,<br>
+dream of me too. ♡
+</p>
+</div>
+</div>
+
+<script>
+function openLetter(){
+document.getElementById("overlay").classList.add("show");
+for(let i=0;i<40;i++){
+setTimeout(createHeart,i*80);
+}
+}
+function createHeart(){
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML="♡";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(16+Math.random()*20)+"px";
+document.getElementById("hearts").appendChild(h);
+setTimeout(()=>h.remove(),5000);
+}
+</script>
+
+</body>
+</html>
